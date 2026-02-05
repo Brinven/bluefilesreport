@@ -417,7 +417,8 @@
           <a class="btn" href="view-pdf.html">
             READ ONLINE (PDF)
           </a>
-          <a class="btn btn-secondary" href="https://files.bluefilesreport.com/Blue_Files_Report.pdf" download>
+          <a class="btn btn-secondary" href="https://files.bluefilesreport.com/Blue_Files_Report.pdf"
+            download="Blue_Files_Report.pdf" onclick="return forceDownload(event, this.href)">
             DOWNLOAD PDF
           </a>
         </section>
@@ -482,6 +483,18 @@
     </div>
   </div>
 
+  <script>
+    function forceDownload(event, url) {
+      event.preventDefault();
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Blue_Files_Report.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      return false;
+    }
+  </script>
 </body>
 
 </html>
