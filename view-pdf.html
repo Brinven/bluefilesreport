@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Read PDF — BLUE FILES REPORT</title>
+  <meta name="description" content="Read the Blue Files Report PDF online with full images and formatting." />
+  <link rel="canonical" href="https://bluefilesreport.com/view-pdf.html" />
+
+  <style>
+    :root {
+      --paper: #eef2f7;
+      --ink: #1f2a44;
+      --muted: #6e7d99;
+      --accent: #2b6cb0;
+      --sidebar-bg: #1e2a44;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden
+    }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    /* Header */
+    .header {
+      background: var(--sidebar-bg);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+      position: relative;
+      z-index: 10;
+    }
+
+    .header h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+    }
+
+    .header a {
+      color: #c4cdd9;
+      text-decoration: none;
+      font-size: .85rem;
+      transition: color .15s ease;
+    }
+
+    .header a:hover {
+      color: #fff;
+    }
+
+    /* PDF Container */
+    .pdf-container {
+      width: 100%;
+      height: calc(100vh - 52px);
+      position: relative;
+      background: #525659;
+    }
+
+    #pdf-viewer {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Loading State */
+    .loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: var(--paper);
+      color: var(--muted);
+      gap: 1rem;
+    }
+
+    .loading::after {
+      content: "";
+      width: 40px;
+      height: 40px;
+      border: 3px solid #d4dbe6;
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .error {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .error h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .error p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+    }
+
+    .error a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .error a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        padding: 0.5rem 1rem;
+      }
+
+      .header h1 {
+        font-size: .9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>BLUE FILES REPORT — PDF Viewer</h1>
+    <a href="index.html">← Back to Home</a>
+  </header>
+
+  <div class="pdf-container">
+    <div class="loading" id="loading">
+      Loading PDF...
+    </div>
+    <div class="error" id="error" style="display:none">
+      <h2>PDF Not Available</h2>
+      <p>The PDF file could not be loaded. Please check that it has been uploaded to Cloudflare R2 and the URL is
+        configured correctly.</p>
+      <p><a href="index.html">Return to Home</a> or <a href="read.html">Read Text Version</a></p>
+    </div>
+    <iframe id="pdf-viewer" style="display:none"></iframe>
+  </div>
+
+  <script type="module">
+    // PDF.js configuration
+    const PDF_URL = 'https://files.bluefilesreport.com/Blue_Files_Report.pdf';
+
+    // Check if PDF URL is configured
+    if (PDF_URL === 'REPLACE_WITH_R2_URL') {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error').style.display = 'flex';
+      document.getElementById('error').innerHTML = `
+    <h2>Configuration Required</h2>
+    <p>The PDF URL needs to be configured. Please upload the PDF to Cloudflare R2 and update the PDF_URL in this file.</p>
+    <p><a href="index.html">Return to Home</a> or <a href="read.html">Read Text Version</a></p>
+  `;
+    } else {
+      // Use PDF.js viewer from CDN
+      const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(PDF_URL)}`;
+
+      const iframe = document.getElementById('pdf-viewer');
+      const loading = document.getElementById('loading');
+      const error = document.getElementById('error');
+
+      iframe.src = viewerUrl;
+
+      // Show iframe when loaded
+      iframe.onload = () => {
+        loading.style.display = 'none';
+        iframe.style.display = 'block';
+      };
+
+      // Handle errors
+      iframe.onerror = () => {
+        loading.style.display = 'none';
+        error.style.display = 'flex';
+      };
+
+      // Timeout fallback (if loading takes too long)
+      setTimeout(() => {
+        if (loading.style.display !== 'none') {
+          loading.style.display = 'none';
+          iframe.style.display = 'block';
+        }
+      }, 3000);
+    }
+  </script>
+
+</body>
+
+</html>

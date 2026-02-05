@@ -1,363 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>BLUE FILES REPORT — Declassified Dossier</title>
-<meta name="description" content="An investigation into Flying Saucer Technology: Convergent UFO power and propulsion systems. By Chris Bounds." />
-<meta name="keywords" content="UFO, flying saucer, propulsion, gammavoltaic, silicon carbide, Reticulum, UAP, technology" />
-<meta property="og:title" content="Blue Files Report — Declassified Dossier" />
-<meta property="og:description" content="An investigation into Flying Saucer Technology: Convergent UFO power and propulsion systems." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://bluefilesreport.com" />
-<link rel="canonical" href="https://bluefilesreport.com" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BLUE FILES REPORT — Declassified Dossier</title>
+  <meta name="description"
+    content="An investigation into Flying Saucer Technology: Convergent UFO power and propulsion systems. By Chris Bounds." />
+  <meta name="keywords"
+    content="UFO, flying saucer, propulsion, gammavoltaic, silicon carbide, Reticulum, UAP, technology" />
+  <meta property="og:title" content="Blue Files Report — Declassified Dossier" />
+  <meta property="og:description"
+    content="An investigation into Flying Saucer Technology: Convergent UFO power and propulsion systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bluefilesreport.com" />
+  <link rel="canonical" href="https://bluefilesreport.com" />
 
-<style>
-:root{
-  --paper:#eef2f7;
-  --ink:#1f2a44;
-  --muted:#6e7d99;
-  --stamp:#c23b2a;
-  --accent:#2b6cb0;
-  --ring:#b7c3d6;
-  --clip:#8ea2bf;
-  --redact:#0c1630;
-  --grid:rgba(20,60,120,.06);
-}
+  <style>
+    :root {
+      --paper: #eef2f7;
+      --ink: #1f2a44;
+      --muted: #6e7d99;
+      --stamp: #c23b2a;
+      --accent: #2b6cb0;
+      --ring: #b7c3d6;
+      --clip: #8ea2bf;
+      --redact: #0c1630;
+      --grid: rgba(20, 60, 120, .06);
+    }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  color:var(--ink);
-  background:
-    radial-gradient(circle at 12px 12px, var(--grid) 2px, transparent 2px) 0 0/24px 24px,
-    linear-gradient(180deg, #e3ebf7 0%, #dbe4f2 60%, #d2dced 100%);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
-  line-height:1.6;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-.wrapper{
-  max-width: 900px;
-  margin: min(6vh,5rem) auto;
-  padding: 0 1rem;
-}
+    html,
+    body {
+      height: 100%
+    }
 
-.folder{
-  position:relative;
-  background: var(--paper);
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 8px;
-  box-shadow:
-    0 18px 40px rgba(7,22,46,.25),
-    inset 0 1px 0 rgba(255,255,255,.6);
-  overflow: hidden;
-}
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12px 12px, var(--grid) 2px, transparent 2px) 0 0/24px 24px,
+        linear-gradient(180deg, #e3ebf7 0%, #dbe4f2 60%, #d2dced 100%);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+    }
 
-.folder::before{
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width: 220px; height: 36px;
-  background: linear-gradient(#dde6f2,#e7eef8);
-  border-right:1px solid rgba(0,0,0,.08);
-  border-bottom:1px solid rgba(0,0,0,.08);
-  border-radius: 0 0 6px 0;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
-}
+    .wrapper {
+      max-width: 900px;
+      margin: min(6vh, 5rem) auto;
+      padding: 0 1rem;
+    }
 
-.clip{
-  position:absolute; right:26px; top:-14px;
-  width:60px; height:48px; background:
-    linear-gradient(#3a4a63,#1e2a44);
-  border-radius: 6px 6px 2px 2px;
-  box-shadow: 0 8px 14px rgba(7,22,46,.35);
-}
-.clip::before, .clip::after{
-  content:"";
-  position:absolute; left:50%; transform:translateX(-50%);
-  width:42px; height:18px; border:2px solid #1b2741; border-top:none;
-  bottom:-16px; border-radius:0 0 20px 20px; background:transparent;
-}
+    .folder {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 8px;
+      box-shadow:
+        0 18px 40px rgba(7, 22, 46, .25),
+        inset 0 1px 0 rgba(255, 255, 255, .6);
+      overflow: hidden;
+    }
 
-.holes{
-  position:absolute; left:14px; top:0; bottom:0; width:22px;
-  background: linear-gradient(90deg, transparent 0 60%, rgba(15,40,80,.08) 60% 100%);
-}
-.hole{
-  width:12px; height:12px; border-radius:50%;
-  background:radial-gradient(circle at 30% 35%, #0b1a33 0 1px, #21324f 1px 2px, #0c1630 2px, #071226 3px);
-  margin: 60px 0 90px 4px; box-shadow:
-   inset 0 1px 2px rgba(255,255,255,.15),
-   0 2px 0 rgba(7,22,46,.35);
-}
+    .folder::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 36px;
+      background: linear-gradient(#dde6f2, #e7eef8);
+      border-right: 1px solid rgba(0, 0, 0, .08);
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 0 0 6px 0;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7);
+    }
 
-.sheet{
-  position:relative;
-  padding: 3.5rem 2.5rem 3rem 3.75rem;
-  background:
-    linear-gradient(180deg, transparent 0 38px, rgba(20,40,90,.10) 38px 39px, transparent 39px) repeat-y,
-    linear-gradient(90deg, rgba(20,100,200,.55) 44px, transparent 44px) no-repeat;
-  background-size: 100% 28px, 100% 100%;
-}
+    .clip {
+      position: absolute;
+      right: 26px;
+      top: -14px;
+      width: 60px;
+      height: 48px;
+      background:
+        linear-gradient(#3a4a63, #1e2a44);
+      border-radius: 6px 6px 2px 2px;
+      box-shadow: 0 8px 14px rgba(7, 22, 46, .35);
+    }
 
-.watermark{
-  position:absolute; inset: 12% 6%;
-  display:flex; align-items:center; justify-content:center;
-  pointer-events:none; user-select:none;
-  transform: rotate(-14deg);
-  opacity:.06; filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
-  font: 900 clamp(3rem, 12vw, 9rem)/1 "Impact", "Anton", "Arial Black", system-ui, sans-serif;
-  color:#2b6cb0;
-}
-.watermark span{
-  border: 8px solid currentColor; padding:.2em .35em; letter-spacing:.06em;
-}
+    .clip::before,
+    .clip::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 42px;
+      height: 18px;
+      border: 2px solid #1b2741;
+      border-top: none;
+      bottom: -16px;
+      border-radius: 0 0 20px 20px;
+      background: transparent;
+    }
 
-.stamp{
-  display:inline-block;
-  color: var(--stamp);
-  border:3px solid var(--stamp);
-  padding:.15em .5em;
-  font-family: "Courier New", Courier, monospace;
-  font-weight:700; letter-spacing:.25em;
-  transform: rotate(-2deg);
-  text-transform:uppercase;
-  filter: saturate(.9) contrast(1.2);
-  box-shadow: 0 0 0 1px rgba(194,59,42,.35) inset;
-}
+    .holes {
+      position: absolute;
+      left: 14px;
+      top: 0;
+      bottom: 0;
+      width: 22px;
+      background: linear-gradient(90deg, transparent 0 60%, rgba(15, 40, 80, .08) 60% 100%);
+    }
 
-.type{
-  font-family:"Courier New", Courier, monospace;
-  letter-spacing:.04em;
-}
+    .hole {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 35%, #0b1a33 0 1px, #21324f 1px 2px, #0c1630 2px, #071226 3px);
+      margin: 60px 0 90px 4px;
+      box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, .15),
+        0 2px 0 rgba(7, 22, 46, .35);
+    }
 
-.redact{
-  background: var(--redact);
-  color: transparent; border-radius:2px;
-  padding: .18em .3em;
-  box-shadow: 0 1px 0 rgba(255,255,255,.18) inset;
-}
+    .sheet {
+      position: relative;
+      padding: 3.5rem 2.5rem 3rem 3.75rem;
+      background:
+        linear-gradient(180deg, transparent 0 38px, rgba(20, 40, 90, .10) 38px 39px, transparent 39px) repeat-y,
+        linear-gradient(90deg, rgba(20, 100, 200, .55) 44px, transparent 44px) no-repeat;
+      background-size: 100% 28px, 100% 100%;
+    }
 
-.btn{
-  appearance:none; -webkit-appearance:none;
-  background: transparent;
-  border:2px solid var(--accent);
-  color: var(--accent);
-  padding:.9rem 1.4rem;
-  text-decoration:none; font-weight:700;
-  letter-spacing:.06em; display:inline-flex; gap:.6rem;
-  align-items:center; justify-content:center;
-  transition:.18s ease-in-out; position:relative;
-  font-family:"Courier New", Courier, monospace;
-  cursor:pointer;
-}
-.btn::before{
-  content:"⟂";
-  color: var(--accent);
-  transform: rotate(90deg);
-  transition:.18s ease-in-out;
-}
-.btn:hover{ background: var(--accent); color:#fff; }
-.btn:hover::before{ color:#fff; }
-.btn:focus{ outline:3px dashed var(--accent); outline-offset:4px }
+    .watermark {
+      position: absolute;
+      inset: 12% 6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      user-select: none;
+      transform: rotate(-14deg);
+      opacity: .06;
+      filter: drop-shadow(0 1px 0 rgba(0, 0, 0, .25));
+      font: 900 clamp(3rem, 12vw, 9rem)/1 "Impact", "Anton", "Arial Black", system-ui, sans-serif;
+      color: #2b6cb0;
+    }
 
-.btn-group{
-  display:flex;
-  flex-wrap:wrap;
-  gap:1rem;
-  margin:1.2rem 0 1.6rem;
-}
+    .watermark span {
+      border: 8px solid currentColor;
+      padding: .2em .35em;
+      letter-spacing: .06em;
+    }
 
-.btn-secondary{
-  border-color: var(--muted);
-  color: var(--muted);
-}
-.btn-secondary::before{ color: var(--muted); }
-.btn-secondary:hover{ background: var(--muted); color:#fff; }
-.btn-secondary:hover::before{ color:#fff; }
+    .stamp {
+      display: inline-block;
+      color: var(--stamp);
+      border: 3px solid var(--stamp);
+      padding: .15em .5em;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 700;
+      letter-spacing: .25em;
+      transform: rotate(-2deg);
+      text-transform: uppercase;
+      filter: saturate(.9) contrast(1.2);
+      box-shadow: 0 0 0 1px rgba(194, 59, 42, .35) inset;
+    }
 
-h1{
-  margin: 0 0 .25rem 0;
-  font: 700 clamp(1.8rem, 4vw, 2.6rem)/1.2 Georgia, "Times New Roman", serif;
-}
-.sub{
-  color: var(--muted);
-  margin: 0 0 1.4rem 0;
-  font-size: 0.95rem;
-}
-hr{
-  border:0; height:1px;
-  background: linear-gradient(90deg, rgba(15,40,80,.25), transparent);
-  margin: 1.2rem 0 1.2rem;
-}
+    .type {
+      font-family: "Courier New", Courier, monospace;
+      letter-spacing: .04em;
+    }
 
-.meta{
-  display:grid; gap:.75rem 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-.label{
-  font-size:.72rem; color:var(--muted);
-  letter-spacing:.18em; text-transform:uppercase;
-  font-family:"Courier New", Courier, monospace;
-}
-.value{ font-weight:600 }
+    .redact {
+      background: var(--redact);
+      color: transparent;
+      border-radius: 2px;
+      padding: .18em .3em;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .18) inset;
+    }
 
-.footer{
-  margin-top:2rem; color:var(--muted); font-size:.9rem;
-  display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
-}
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: .9rem 1.4rem;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .06em;
+      display: inline-flex;
+      gap: .6rem;
+      align-items: center;
+      justify-content: center;
+      transition: .18s ease-in-out;
+      position: relative;
+      font-family: "Courier New", Courier, monospace;
+      cursor: pointer;
+    }
 
-.nav-links{
-  margin-top:1.5rem;
-  padding-top:1rem;
-  border-top:1px dashed rgba(15,40,80,.2);
-  display:flex;
-  gap:1.5rem;
-  flex-wrap:wrap;
-}
-.nav-links a{
-  color:var(--accent);
-  text-decoration:none;
-  font-family:"Courier New", Courier, monospace;
-  font-size:.85rem;
-  letter-spacing:.08em;
-}
-.nav-links a:hover{
-  text-decoration:underline;
-}
+    .btn::before {
+      content: "⟂";
+      color: var(--accent);
+      transform: rotate(90deg);
+      transition: .18s ease-in-out;
+    }
 
-.highlight-box{
-  background: rgba(43,108,176,.08);
-  border-left: 3px solid var(--accent);
-  padding: 1rem 1.25rem;
-  margin: 1.2rem 0;
-  font-size:.95rem;
-}
-.highlight-box strong{
-  color: var(--accent);
-}
+    .btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
 
-@media (max-width: 600px) {
-  .sheet{ padding: 3rem 1.5rem 2rem 2.5rem; }
-  .btn-group{ flex-direction:column; }
-  .btn{ width:100%; justify-content:center; }
-}
+    .btn:hover::before {
+      color: #fff;
+    }
 
-@media print {
-  body{ background:#fff }
-  .wrapper{ margin:0; }
-  .folder{ box-shadow:none; border:none }
-  .clip, .watermark{ opacity:.08 }
-  .btn{ display:none }
-}
-</style>
+    .btn:focus {
+      outline: 3px dashed var(--accent);
+      outline-offset: 4px
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.2rem 0 1.6rem;
+    }
+
+    .btn-secondary {
+      border-color: var(--muted);
+      color: var(--muted);
+    }
+
+    .btn-secondary::before {
+      color: var(--muted);
+    }
+
+    .btn-secondary:hover {
+      background: var(--muted);
+      color: #fff;
+    }
+
+    .btn-secondary:hover::before {
+      color: #fff;
+    }
+
+    h1 {
+      margin: 0 0 .25rem 0;
+      font: 700 clamp(1.8rem, 4vw, 2.6rem)/1.2 Georgia, "Times New Roman", serif;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin: 0 0 1.4rem 0;
+      font-size: 0.95rem;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 40, 80, .25), transparent);
+      margin: 1.2rem 0 1.2rem;
+    }
+
+    .meta {
+      display: grid;
+      gap: .75rem 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .label {
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .value {
+      font-weight: 600
+    }
+
+    .footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: .9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(15, 40, 80, .2);
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-family: "Courier New", Courier, monospace;
+      font-size: .85rem;
+      letter-spacing: .08em;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .highlight-box {
+      background: rgba(43, 108, 176, .08);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin: 1.2rem 0;
+      font-size: .95rem;
+    }
+
+    .highlight-box strong {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      .sheet {
+        padding: 3rem 1.5rem 2rem 2.5rem;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff
+      }
+
+      .wrapper {
+        margin: 0;
+      }
+
+      .folder {
+        box-shadow: none;
+        border: none
+      }
+
+      .clip,
+      .watermark {
+        opacity: .08
+      }
+
+      .btn {
+        display: none
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="wrapper">
-  <div class="folder">
-    <div class="clip" aria-hidden="true"></div>
-    <div class="holes" aria-hidden="true">
-      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
-    </div>
-
-    <div class="sheet" role="main">
-      <div class="watermark" aria-hidden="true"><span>DECLASSIFIED</span></div>
-
-      <p class="type" style="margin:0 0 .25rem 0; letter-spacing:.18em;">INDEPENDENT RESEARCH — PUBLIC RELEASE</p>
-      <span class="stamp" aria-label="Declassified stamp">DECLASSIFIED</span>
-
-      <h1>BLUE FILES REPORT</h1>
-      <p class="sub type">
-        Subject: An Investigation into Flying Saucer Technology ·
-        Reference: <span class="type">BFR-01</span> · Status: Public Release
-      </p>
-
-      <hr />
-
-      <section>
-        <p>
-          This dossier consolidates 22 years of research into convergent UFO power and propulsion systems.
-          It presents technical analysis, historical documentation, witness accounts, and cross-referenced
-          physics from independent sources separated by decades and geography — all describing nearly
-          identical systems.
-        </p>
-      </section>
-
-      <div class="highlight-box">
-        <strong>Convergence:</strong> How independent sources, separated by decades, geography, and context,
-        describe nearly identical systems using different language, different levels of technical understanding,
-        and different frames of reference.
+  <div class="wrapper">
+    <div class="folder">
+      <div class="clip" aria-hidden="true"></div>
+      <div class="holes" aria-hidden="true">
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
       </div>
 
-      <section class="btn-group">
-        <a class="btn" href="read.html">
-          READ ONLINE
-        </a>
-        <a class="btn btn-secondary" href="Blue_Files_Report.pdf" download>
-          DOWNLOAD PDF
-        </a>
-      </section>
+      <div class="sheet" role="main">
+        <div class="watermark" aria-hidden="true"><span>DECLASSIFIED</span></div>
 
-      <section class="meta">
-        <div>
-          <div class="label">Author</div>
-          <div class="value">Chris Bounds</div>
-        </div>
-        <div>
-          <div class="label">File ID</div>
-          <div class="value type">BF-RPT-001</div>
-        </div>
-        <div>
-          <div class="label">Release Status</div>
-          <div class="value">First Draft — Public Release</div>
-        </div>
-        <div>
-          <div class="label">Pages</div>
-          <div class="value">490</div>
-        </div>
-        <div>
-          <div class="label">Research Period</div>
-          <div class="value">22 Years</div>
-        </div>
-        <div>
-          <div class="label">Blue Files</div>
-          <div class="value">24 Investigations</div>
-        </div>
-      </section>
+        <p class="type" style="margin:0 0 .25rem 0; letter-spacing:.18em;">INDEPENDENT RESEARCH — PUBLIC RELEASE</p>
+        <span class="stamp" aria-label="Declassified stamp">DECLASSIFIED</span>
 
-      <hr />
-
-      <section>
-        <div class="label">Scope</div>
-        <p style="margin-top:.5rem">
-          Historical timelines from ancient Vimanas to modern UAP. Patent analysis. Field reports.
-          Propulsion hypotheses. Materials science. Power generation systems. Cross-referenced technical
-          data organized for systematic review.
+        <h1>BLUE FILES REPORT</h1>
+        <p class="sub type">
+          Subject: An Investigation into Flying Saucer Technology ·
+          Reference: <span class="type">BFR-01</span> · Status: Public Release
         </p>
-      </section>
 
-      <section style="margin-top:1.4rem">
-        <p class="type" style="letter-spacing:.12em; font-size:.85rem;">
-          NOTES: All content is drawn from public-domain sources; no classified material is included.
-          This draft contains all core information; professional illustrations for the final edition
-          are in development.
-        </p>
-      </section>
+        <hr />
 
-      <nav class="nav-links">
-        <a href="read.html">Read Report</a>
-        <a href="about.html">About the Research</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+        <section>
+          <p>
+            This dossier consolidates 22 years of research into convergent UFO power and propulsion systems.
+            It presents technical analysis, historical documentation, witness accounts, and cross-referenced
+            physics from independent sources separated by decades and geography — all describing nearly
+            identical systems.
+          </p>
+        </section>
 
-      <footer class="footer">
-        <div>© 2025 Chris Bounds — Blue Files Project</div>
-        <div class="type">Ref: BFR-01 · Rev 1.0 · Public</div>
-      </footer>
+        <div class="highlight-box">
+          <strong>Convergence:</strong> How independent sources, separated by decades, geography, and context,
+          describe nearly identical systems using different language, different levels of technical understanding,
+          and different frames of reference.
+        </div>
+
+        <section class="btn-group">
+          <a class="btn" href="read.html">
+            READ ONLINE (TEXT)
+          </a>
+          <a class="btn" href="view-pdf.html">
+            READ ONLINE (PDF)
+          </a>
+          <a class="btn btn-secondary" href="Blue_Files_Report.pdf" download>
+            DOWNLOAD PDF
+          </a>
+        </section>
+
+        <section class="meta">
+          <div>
+            <div class="label">Author</div>
+            <div class="value">Chris Bounds</div>
+          </div>
+          <div>
+            <div class="label">File ID</div>
+            <div class="value type">BF-RPT-001</div>
+          </div>
+          <div>
+            <div class="label">Release Status</div>
+            <div class="value">First Draft — Public Release</div>
+          </div>
+          <div>
+            <div class="label">Pages</div>
+            <div class="value">490</div>
+          </div>
+          <div>
+            <div class="label">Research Period</div>
+            <div class="value">22 Years</div>
+          </div>
+          <div>
+            <div class="label">Blue Files</div>
+            <div class="value">24 Investigations</div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section>
+          <div class="label">Scope</div>
+          <p style="margin-top:.5rem">
+            Historical timelines from ancient Vimanas to modern UAP. Patent analysis. Field reports.
+            Propulsion hypotheses. Materials science. Power generation systems. Cross-referenced technical
+            data organized for systematic review.
+          </p>
+        </section>
+
+        <section style="margin-top:1.4rem">
+          <p class="type" style="letter-spacing:.12em; font-size:.85rem;">
+            NOTES: All content is drawn from public-domain sources; no classified material is included.
+            This draft contains all core information; professional illustrations for the final edition
+            are in development.
+          </p>
+        </section>
+
+        <nav class="nav-links">
+          <a href="read.html">Read Report</a>
+          <a href="about.html">About the Research</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <footer class="footer">
+          <div>© 2025 Chris Bounds — Blue Files Project</div>
+          <div class="type">Ref: BFR-01 · Rev 1.0 · Public</div>
+        </footer>
+      </div>
     </div>
   </div>
-</div>
 
 </body>
+
 </html>
