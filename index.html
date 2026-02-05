@@ -479,18 +479,6 @@
     </div>
   </div>
 
-  <script>
-    function forceDownload(event, url) {
-      event.preventDefault();
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Blue_Files_Report.pdf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      return false;
-    }
-  </script>
 </body>
 
 </html>
