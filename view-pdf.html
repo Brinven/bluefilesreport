@@ -174,49 +174,30 @@
     <iframe id="pdf-viewer" style="display:none"></iframe>
   </div>
 
-  <script type="module">
-    // PDF.js configuration
+  <script>
+    // Direct PDF embed - simpler and more reliable
     const PDF_URL = 'https://files.bluefilesreport.com/Blue_Files_Report.pdf';
 
-    // Check if PDF URL is configured
-    if (PDF_URL === 'REPLACE_WITH_R2_URL') {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('error').style.display = 'flex';
-      document.getElementById('error').innerHTML = `
-    <h2>Configuration Required</h2>
-    <p>The PDF URL needs to be configured. Please upload the PDF to Cloudflare R2 and update the PDF_URL in this file.</p>
-    <p><a href="index.html">Return to Home</a> or <a href="read.html">Read Text Version</a></p>
-  `;
-    } else {
-      // Use PDF.js viewer from CDN
-      const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(PDF_URL)}`;
+    const loading = document.getElementById('loading');
+    const error = document.getElementById('error');
+    const viewer = document.getElementById('pdf-viewer');
 
-      const iframe = document.getElementById('pdf-viewer');
-      const loading = document.getElementById('loading');
-      const error = document.getElementById('error');
+    // Set iframe source directly to the PDF
+    viewer.src = PDF_URL;
 
-      iframe.src = viewerUrl;
+    // Show viewer after a short delay
+    setTimeout(() => {
+      loading.style.display = 'none';
+      viewer.style.display = 'block';
+    }, 1000);
 
-      // Show iframe when loaded
-      iframe.onload = () => {
-        loading.style.display = 'none';
-        iframe.style.display = 'block';
-      };
-
-      // Handle errors
-      iframe.onerror = () => {
+    // If PDF doesn't load after 10 seconds, show error
+    setTimeout(() => {
+      if (loading.style.display !== 'none') {
         loading.style.display = 'none';
         error.style.display = 'flex';
-      };
-
-      // Timeout fallback (if loading takes too long)
-      setTimeout(() => {
-        if (loading.style.display !== 'none') {
-          loading.style.display = 'none';
-          iframe.style.display = 'block';
-        }
-      }, 3000);
-    }
+      }
+    }, 10000);
   </script>
 
 </body>
