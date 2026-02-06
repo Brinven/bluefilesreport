@@ -601,14 +601,15 @@
       // Add click handler for sidebar edge tab (mobile)
       const sidebar = document.querySelector('.sidebar');
       sidebar.addEventListener('click', (e) => {
-        // Only handle clicks on the ::after pseudo-element (edge tab)
-        // Check if sidebar is not open and click is on the right edge
+        // Only handle clicks when sidebar is closed (no 'open' class)
         if (!sidebar.classList.contains('open')) {
           const rect = sidebar.getBoundingClientRect();
           const clickX = e.clientX;
-          // If click is within the visible edge tab area (right 40px)
+          // If click is within the visible edge tab area (right 40px of the sidebar)
           if (clickX >= rect.right - 40) {
-            toggleSidebar();
+            // Open the sidebar
+            sidebar.classList.add('open');
+            document.querySelector('.overlay').classList.add('show');
           }
         }
       });
