@@ -150,6 +150,70 @@
       .header h1 {
         font-size: .9rem;
       }
+
+      /* Mobile PDF improvements */
+      #pdf-viewer {
+        /* Enable touch scrolling on mobile */
+        -webkit-overflow-scrolling: touch;
+        overflow: auto;
+      }
+
+      .pdf-container {
+        /* Adjust for mobile viewport */
+        height: calc(100vh - 48px);
+      }
+    }
+
+    /* Fallback message for mobile */
+    .mobile-fallback {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .mobile-fallback h2 {
+      color: var(--ink);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .mobile-fallback p {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 400px;
+    }
+
+    .mobile-fallback .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      transition: background 0.2s ease;
+    }
+
+    .mobile-fallback .btn:hover {
+      background: #1e5a9e;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-fallback {
+        display: flex;
+      }
+
+      #pdf-viewer {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -170,6 +234,14 @@
       <p>The PDF file could not be loaded. Please check that it has been uploaded to Cloudflare R2 and the URL is
         configured correctly.</p>
       <p><a href="index.html">Return to Home</a> or <a href="read.html">Read Text Version</a></p>
+    </div>
+    <div class="mobile-fallback">
+      <h2>View PDF in Browser</h2>
+      <p>For the best mobile experience, open the PDF in your browser's native viewer with full zoom and scroll support.
+      </p>
+      <a href="https://files.bluefilesreport.com/Blue_Files_Report.pdf" class="btn" target="_blank" rel="noopener">Open
+        PDF</a>
+      <a href="read.html" class="btn" style="background:#6e7d99; margin-top:0.5rem;">Read Text Version</a>
     </div>
     <iframe id="pdf-viewer" style="display:none"></iframe>
   </div>
