@@ -613,6 +613,14 @@
     document.querySelectorAll('.chapter-list a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
+
+        // Close sidebar immediately on mobile
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('show');
+
+        // Then load the chapter
         loadChapter(link.dataset.chapter);
       });
     });
