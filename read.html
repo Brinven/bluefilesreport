@@ -54,7 +54,7 @@
 
       .sidebar {
         position: fixed;
-        left: calc(-85vw + 40px);
+        left: calc(-85vw + 44px);
         width: 85vw;
         max-width: 320px;
         transition: left .3s ease;
@@ -79,28 +79,13 @@
         display: block !important;
       }
 
-      /* Sidebar edge tab */
-      .sidebar::after {
-        content: "☰";
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 80px;
-        background: var(--sidebar-bg);
-        border-radius: 0 8px 8px 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 1.5rem;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
-        cursor: pointer;
+      /* Sidebar edge tab button */
+      .sidebar-edge-tab {
+        display: flex !important;
       }
 
-      .sidebar.open::after {
-        display: none;
+      .sidebar.open .sidebar-edge-tab {
+        display: none !important;
       }
     }
 
@@ -240,6 +225,31 @@
 
     .menu-toggle span::after {
       top: 6px;
+    }
+
+    /* Sidebar edge tab button */
+    .sidebar-edge-tab {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 80px;
+      background: var(--sidebar-bg);
+      border: none;
+      border-radius: 0 8px 8px 0;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .sidebar-edge-tab:active {
+      background: #2b3a54;
     }
 
     .overlay {
@@ -414,6 +424,7 @@
 
   <div class="layout">
     <aside class="sidebar">
+      <button class="sidebar-edge-tab" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
       <div class="sidebar-header">
         <h2>BLUE FILES REPORT</h2>
         <button class="close-sidebar" onclick="toggleSidebar()" aria-label="Close menu">×</button>
@@ -595,25 +606,7 @@
     }
 
     // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-      handleHash();
-
-      // Add click handler for sidebar edge tab (mobile)
-      const sidebar = document.querySelector('.sidebar');
-      sidebar.addEventListener('click', (e) => {
-        // Only handle clicks when sidebar is closed (no 'open' class)
-        if (!sidebar.classList.contains('open')) {
-          const rect = sidebar.getBoundingClientRect();
-          const clickX = e.clientX;
-          // If click is within the visible edge tab area (right 40px of the sidebar)
-          if (clickX >= rect.right - 40) {
-            // Open the sidebar
-            sidebar.classList.add('open');
-            document.querySelector('.overlay').classList.add('show');
-          }
-        }
-      });
-    });
+    document.addEventListener('DOMContentLoaded', handleHash);
     window.addEventListener('hashchange', handleHash);
 
     // Sidebar link clicks
