@@ -542,9 +542,17 @@
           updateNavigation();
           window.scrollTo(0, 0);
 
-          // Close mobile sidebar
-          document.querySelector('.sidebar').classList.remove('open');
-          document.querySelector('.overlay').classList.remove('show');
+          // Close mobile sidebar - ensure it happens
+          const sidebar = document.querySelector('.sidebar');
+          const overlay = document.querySelector('.overlay');
+
+          if (sidebar) sidebar.classList.remove('open');
+          if (overlay) overlay.classList.remove('show');
+
+          // Force a reflow to ensure transition happens
+          if (sidebar) {
+            void sidebar.offsetWidth;
+          }
         })
         .catch(err => {
           contentDiv.innerHTML = `
