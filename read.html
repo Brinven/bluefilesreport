@@ -54,11 +54,12 @@
 
       .sidebar {
         position: fixed;
-        left: -100%;
+        left: calc(-85vw + 40px);
         width: 85vw;
         max-width: 320px;
         transition: left .3s ease;
         z-index: 1000;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, .3);
       }
 
       .sidebar.open {
@@ -66,7 +67,7 @@
       }
 
       .menu-toggle {
-        display: flex !important;
+        display: none !important;
       }
 
       .content {
@@ -76,6 +77,30 @@
 
       .close-sidebar {
         display: block !important;
+      }
+
+      /* Sidebar edge tab */
+      .sidebar::after {
+        content: "☰";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 80px;
+        background: var(--sidebar-bg);
+        border-radius: 0 8px 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.5rem;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
+        cursor: pointer;
+      }
+
+      .sidebar.open::after {
+        display: none;
       }
     }
 
@@ -562,7 +587,24 @@
     }
 
     // Initialize
-    document.addEventListener('DOMContentLoaded', handleHash);
+    document.addEventListener('DOMContentLoaded', () => {
+      handleHash();
+
+      // Add click handler for sidebar edge tab (mobile)
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.addEventListener('click', (e) => {
+        // Only handle clicks on the ::after pseudo-element (edge tab)
+        // Check if sidebar is not open and click is on the right edge
+        if (!sidebar.classList.contains('open')) {
+          const rect = sidebar.getBoundingClientRect();
+          const clickX = e.clientX;
+          // If click is within the visible edge tab area (right 40px)
+          if (clickX >= rect.right - 40) {
+            toggleSidebar();
+          }
+        }
+      });
+    });
     window.addEventListener('hashchange', handleHash);
 
     // Sidebar link clicks
