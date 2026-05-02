@@ -1,5 +1,6 @@
 node_modules/
 pdf/
+_deploy/
 .wrangler/
 .claude/
 .dev.vars

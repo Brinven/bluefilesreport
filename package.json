@@ -5,6 +5,7 @@
   "description": "bluefilesreport.com — static site + R2-hosted PDF tooling",
   "scripts": {
     "upload-pdf": "wrangler r2 object put bluefiles-assets/Blue_Files_Report.pdf --file=pdf/Blue_Files_Report.pdf --remote --content-type=application/pdf",
+    "deploy": "powershell -ExecutionPolicy Bypass -File scripts/deploy-pages.ps1",
     "list-buckets": "wrangler r2 bucket list",
     "whoami": "wrangler whoami",
     "login": "wrangler login",
