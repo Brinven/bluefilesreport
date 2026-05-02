@@ -1,0 +1,16 @@
+{
+  "name": "bluefiles-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "bluefilesreport.com — static site + R2-hosted PDF tooling",
+  "scripts": {
+    "upload-pdf": "wrangler r2 object put bluefiles-assets/Blue_Files_Report.pdf --file=pdf/Blue_Files_Report.pdf --remote --content-type=application/pdf",
+    "list-buckets": "wrangler r2 bucket list",
+    "whoami": "wrangler whoami",
+    "login": "wrangler login",
+    "logout": "wrangler logout"
+  },
+  "devDependencies": {
+    "wrangler": "^4.87.0"
+  }
+}

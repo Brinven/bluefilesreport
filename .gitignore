@@ -1,0 +1,17 @@
+node_modules/
+pdf/
+.wrangler/
+.claude/
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Source artifacts (not deliverables)
+*.docx
+*.pdf
+Blue_Files_Report.md
+
+*.log
+.DS_Store
+Thumbs.db
